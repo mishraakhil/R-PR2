@@ -2,6 +2,10 @@
 ## matrix are always inversible
 
 ## this function set up matrix for inverse calulcation
+## set the value of the Matrix
+## get the value of the Matrix
+## set the value of the Inverse
+## get the value of the Inverse
 
 makeCacheMatrix <- function(x = matrix()) {
 
@@ -23,7 +27,7 @@ makeCacheMatrix <- function(x = matrix()) {
 
 
 
-## return inverse of matrix - if in cache dont calculate
+## this fuction return inverse of matrix - if matrix is already in cache function does not calculate again
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
@@ -31,10 +35,12 @@ cacheSolve <- function(x, ...) {
         if(!is.null(m)) {
                 message("getting cached data")
                 return(m)
+## function return m which is inverse of the matrix for cache - exiting matrix
         }
         data <- x$get()
         m <- solve(data, ...)
+ ## Solve function is used to compute inverse.
         x$setinv(m)
         m
-
+## function return m which is inverse of the matrix for new inverse calculation
 }
